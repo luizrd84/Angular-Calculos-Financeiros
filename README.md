@@ -43,12 +43,13 @@ O projeto permite alternar entre Pessoa Física (PF) e Pessoa Jurídica (PJ), ap
 
 ## Futuros Updates
 
+- Implementar a opção de carência nos cálculos
 - Adicionar página de conversão de taxas (mensal ↔ anual)
 - Adicionar página de cálculo de juros compostos
 
 ## Demostração do Projeto
 
-- em breve
+- https://angular-calculos-financeiros.vercel.app/
 
 ## Como Executar o Projeto
 
