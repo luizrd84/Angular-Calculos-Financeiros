@@ -1,4 +1,4 @@
-# 💰 Simulador de Financiamento
+# Simulador de Financiamento
 
 Aplicação web desenvolvida em Angular para simulação de financiamentos com cálculo de:
 
@@ -10,9 +10,7 @@ Aplicação web desenvolvida em Angular para simulação de financiamentos com c
 
 O projeto permite alternar entre Pessoa Física (PF) e Pessoa Jurídica (PJ), aplicando automaticamente as regras vigentes de IOF.
 
----
-
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - Angular 17+
 - TypeScript
@@ -21,9 +19,7 @@ O projeto permite alternar entre Pessoa Física (PF) e Pessoa Jurídica (PJ), ap
 - Angular Forms (ngModel)
 - Intl API (formatação monetária)
 
----
-
-## 📌 Funcionalidades
+## Funcionalidades
 
 ✔ Simulação de financiamento  
 ✔ Cálculo automático de IOF (fixo + variável até 365 dias)  
@@ -33,9 +29,7 @@ O projeto permite alternar entre Pessoa Física (PF) e Pessoa Jurídica (PJ), ap
 ✔ Formatação automática de valores monetários (R$)  
 ✔ Modal de validação de campos
 
----
-
-## 🧮 Regras de IOF Utilizadas (2026)
+## Regras de IOF Utilizadas (2026)
 
 ### Pessoa Física (PF)
 
@@ -47,20 +41,16 @@ O projeto permite alternar entre Pessoa Física (PF) e Pessoa Jurídica (PJ), ap
 - 0,95% fixo
 - 0,0082% ao dia (limitado a 365 dias)
 
----
-
 ## Futuros Updates
 
 - Adicionar página de conversão de taxas (mensal ↔ anual)
 - Adicionar página de cálculo de juros compostos
 
----
-
 ## Demostração do Projeto
 
 - em breve
 
-## ▶️ Como Executar o Projeto
+## Como Executar o Projeto
 
 ```bash
 # instalar dependências
