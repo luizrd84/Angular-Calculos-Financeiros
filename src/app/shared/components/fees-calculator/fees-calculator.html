@@ -1,0 +1,200 @@
+
+<div class="page-container">
+
+    <header class="page-header">
+      <h2>Cálculo de parcelas de empréstimos bancários</h2>
+      <p>Cálculo inclui tarifas e IOF do empréstimo</p>
+    </header>
+
+    <!-- SEÇÃO 1 - Tipo de contrato -->
+    <section class="card">
+      <h3>Tipo de Contrato</h3>
+
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="tipoPessoa" value="pf" checked
+            [(ngModel)]="tipoPessoa"
+            (ngModelChange)="alterarTipoPessoa($event)"
+          >          
+          Pessoa Física
+        </label>
+
+        <label>
+          <input type="radio" name="tipoPessoa" value="pj"
+            [(ngModel)]="tipoPessoa"
+            (ngModelChange)="alterarTipoPessoa($event)"
+          >
+          Pessoa Jurídica
+        </label>
+      </div>
+    </section>
+
+    
+    <!-- SEÇÃO 2 - IOF -->
+    <section class="card">
+      <h3>Configuração de IOF</h3>
+    
+      <div class="iof-item">
+        <div class="iof-header">
+          <p>IOF fixo: {{iofFixoFormatado}}% </p>
+          <button class="icon-btn" (click)="mostrarIofFixo = !mostrarIofFixo">✏️</button>
+        </div>
+        @if (mostrarIofFixo) {
+          <input type="text"  value="0,38"
+            [(ngModel)]="iofFixoFormatado" 
+            (ngModelChange)="formatarIOFFixo($event)"
+            (keypress)="apenasNumeros($event)"
+          >
+        }      
+      </div>
+
+      <div class="iof-item">
+        <div class="iof-header">
+          <p>IOF variável: {{iofVariavelFormatado}}% ao dia (máximo 365 dias)</p>
+          <button class="icon-btn" (click)="mostrarIofVariavel = !mostrarIofVariavel">✏️</button>
+        </div>
+        @if (mostrarIofVariavel) {
+          <input type="text" value="0,0082"
+            [(ngModel)]="iofVariavelFormatado" 
+            (ngModelChange)="formatarIOFFixo($event)"
+            (keypress)="apenasNumeros($event)"
+          >
+        }
+        
+      </div>
+    </section>
+
+    <!-- SEÇÃO 3 - Dados do contrato -->
+    <section class="card">
+      <h3>Dados do Contrato</h3>
+
+      <div class="form-grid">
+        <div>
+          <label for="valorLiquido">Valor líquido do contrato (R$)</label>
+          <input type="text" 
+              [ngModel]="valorLiquidoFormatado"
+              (ngModelChange)="formatarValorContrato($event)"
+              (keypress)="apenasNumeros($event)"
+          >
+        </div>
+
+        <div>
+          <label for="taxaJuros">Taxa de juros (% a.m.)</label>
+          <input type="text" id="taxaJuros"
+            [ngModel]="taxaJurosFormatada" 
+            (ngModelChange)="formatarTaxaJuros($event)"
+            (keypress)="apenasNumeros($event)"
+          >
+        </div>
+
+        <div>
+          <label for="percentualTac">Tarifa (%)</label>
+          <input type="text" id="percentualTac"
+            [ngModel]="tacPercentualFormatado" 
+            (ngModelChange)="formatarPercentualTac($event)"
+            (keypress)="apenasNumeros($event)"
+          >
+        </div>
+
+        <div>
+          <label for="tacMax">Tarifa máxima (R$)</label>
+          <input type="text" id="tacMax" 
+              [ngModel]="tacMaxFormatada"
+              (ngModelChange)="formatarValorTarifa($event)"
+              (keypress)="apenasNumeros($event)"
+          >
+        </div>
+
+        <div>
+          <label for="prazo">Prazo (meses)</label>
+          <input type="number" id="prazo"
+          [(ngModel)]="quantidadeParcelas">
+        </div>
+
+        <div>
+          <label for="carencia">Carência (meses)</label>
+          <input type="number" id="carencia" 
+            [(ngModel)]="carencia" 
+            readonly
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 4 - Plano -->
+    <section class="card">
+      <h3>Plano de Pagamento</h3>
+
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="plano" value="price" checked
+            [(ngModel)]="planoPagamento"
+          >
+          Price (Parcelas fixas)
+        </label>
+
+        <label>
+          <input type="radio" name="plano" value="sac"
+            [(ngModel)]="planoPagamento"
+          >
+          SAC (Amortização fixa)
+        </label>
+      </div>
+    </section>
+
+    <div class="simular-container">
+      <button (click)="simular()">Simular</button>
+    </div>
+
+    <!-- SEÇÃO 5 - Resumo -->
+    <section class="card resumo">
+      <h3>Resumo da Operação</h3>
+      <p>Data da simulação:
+        <strong>{{ resumoData }}</strong> </p>
+      <p>Valor total financiado: 
+        <strong>{{ resumoValorTotalFinanciado | currency:'BRL' }}</strong></p>
+      <p>Valor da tarifa:
+        <strong>{{ resumoValorTarifa | currency:'BRL' }}</strong></p>
+      <p>Valor do IOF:
+        <strong>{{ resumoValorIof | currency:'BRL' }}</strong></p>
+    </section>
+
+    <!-- TABELA -->
+    <div class="table-container">
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Parcela</th>
+            <th>Data de vencimento</th>
+            <th>Valor da parcela</th>
+          </tr>
+        </thead>
+
+        @if (exibirSimulacao) {
+          <tbody>
+          @for (item of simulacao; track item.numero) {
+            <tr>
+              <td>{{item.numero}}</td>
+              <td>{{item.vencimento}}</td>
+              <td>{{item.valor}}</td>
+            </tr>
+          }            
+          </tbody>
+        }     
+
+      </table>
+    </div>
+
+  </div>
+  
+
+  <!-- <button (click)="openModal()">Abrir Modal</button> -->
+@if (showModal) {
+    <app-message-modal 
+        [title]="'Dados Inválidos!'"
+        [message]="'Preencha todos os campos.'"
+        [buttonText]="'Ok'"
+        (close)="closeModal()"
+    ></app-message-modal>
+}

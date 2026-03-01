@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "01-basic": {
+    "50-calculos-financeiros": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,10 +56,11 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "01-basic:build:production"
+              "buildTarget": "50-calculos-financeiros:build:production"
             },
             "development": {
-              "buildTarget": "01-basic:build:development"
+              "buildTarget": "50-calculos-financeiros:build:development",
+              "port": 3000
             }
           },
           "defaultConfiguration": "development"

@@ -1,0 +1,173 @@
+
+.page-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 2em;
+}
+
+.page-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+  font-size: 1.6em;
+}
+
+.page-header p {
+  margin-top: 5px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #1e3c72;
+}
+
+.radio-group label {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  justify-items: start;
+}
+
+.form-grid label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+  border-color: #2a5298;
+  outline: none;
+  box-shadow: 0 0 5px rgba(42,82,152,0.4);
+}
+
+/* IOF */
+.iof-item {
+  margin-bottom: 15px;
+}
+
+.iof-item input {
+  width: 100%;
+  max-width: 200px;
+}
+
+.iof-header {
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* distância entre texto e botão */
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 2px;
+}
+/* 
+.hidden-input {
+  display: none;
+  margin-top: 10px;
+} */
+
+.show-input {
+  display: block;
+}
+
+/* TABELA MELHORADA */
+.table-container {
+  
+  overflow-x: auto;
+  margin-top: 20px;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th {
+  background: #2a5298;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+.data-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.data-table tbody tr:hover {
+  background: #f0f4ff;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+} 
+
+
+/* Container do botão */
+.simular-container {
+  text-align: center; /* centraliza o botão */
+  margin: 20px 0; /* espaço acima e abaixo */
+}
+
+/* Estilo do botão */
+.simular-container button {
+  background: #2a5298; /* azul principal do tema */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 45px; /* altura e largura confortável */
+  font-size: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+/* Efeito hover */
+.simular-container button:hover {
+  background: #1e3c72; /* tom mais escuro ao passar o mouse */
+  transform: translateY(-2px); /* leve “levantar” do botão */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Efeito click rápido */
+.simular-container button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+#carencia {
+  background-color: #ccc;
+}
